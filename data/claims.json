@@ -1,0 +1,279 @@
+[
+  {
+    "claimId": "CLM-1001",
+    "patient": "Sarah Johnson",
+    "pharmacy": "Walgreens",
+    "drug": "Ozempic",
+    "claimAmount": 1200,
+    "approvedAmount": 950,
+    "issue": "Payment Mismatch",
+    "status": "Under Review",
+    "priority": "High",
+    "riskScore": 92,
+    "adjudicationStatus": "Partially Approved",
+    "eraReconciliationStatus": "Variance Detected",
+    "aiRecommendation": "Validate formulary adjustment before approval.",
+    "relatedClaims": ["CLM-1010", "CLM-1014"],
+    "detectedIssues": [
+      "Reimbursement variance detected",
+      "Potential duplicate submission",
+      "High-cost medication flag"
+    ],
+    "investigationSummary": "AI detected reimbursement anomalies and duplicate claim patterns associated with this patient and pharmacy combination.",
+    "suggestedActions": [
+      "Escalate to financial review",
+      "Validate payer adjustment codes",
+      "Request additional documentation"
+    ]
+  },
+
+  {
+    "claimId": "CLM-1002",
+    "patient": "Michael Lee",
+    "pharmacy": "CVS Pharmacy",
+    "drug": "Humira",
+    "claimAmount": 2400,
+    "approvedAmount": 2400,
+    "issue": "Duplicate Claim",
+    "status": "Discrepancy Detected",
+    "priority": "Medium",
+    "riskScore": 78,
+    "adjudicationStatus": "Approved",
+    "eraReconciliationStatus": "Partial Match",
+    "aiRecommendation": "Potential duplicate claim detected within 24 hours.",
+    "relatedClaims": ["CLM-1022"],
+    "detectedIssues": [
+      "Duplicate submission pattern detected",
+      "Multiple submissions within 24 hours",
+      "Potential duplicate ERA transaction"
+    ],
+    "investigationSummary": "AI identified multiple submissions with matching patient and medication details across the reconciliation window.",
+    "suggestedActions": [
+      "Route to reconciliation queue",
+      "Validate claim timestamps",
+      "Confirm duplicate status"
+    ]
+  },
+
+  {
+    "claimId": "CLM-1003",
+    "patient": "Emily Davis",
+    "pharmacy": "Rite Aid",
+    "drug": "Jardiance",
+    "claimAmount": 560,
+    "approvedAmount": 0,
+    "issue": "Missing Pharmacy ID",
+    "status": "Pending Validation",
+    "priority": "Low",
+    "riskScore": 35,
+    "adjudicationStatus": "Pending Review",
+    "eraReconciliationStatus": "Payment Pending",
+    "aiRecommendation": "Missing NCPDP pharmacy identifier.",
+    "relatedClaims": [],
+    "detectedIssues": [
+      "Missing NCPDP pharmacy identifier",
+      "Claim failed payer validation checks",
+      "Payment reconciliation incomplete"
+    ],
+    "investigationSummary": "AI validation detected missing pharmacy identification fields preventing successful adjudication and payment processing.",
+    "suggestedActions": [
+      "Validate pharmacy identifier",
+      "Request corrected claim submission",
+      "Reprocess payer validation"
+    ]
+  },
+
+  {
+    "claimId": "CLM-1004",
+    "patient": "David Wilson",
+    "pharmacy": "Costco Pharmacy",
+    "drug": "Eliquis",
+    "claimAmount": 320,
+    "approvedAmount": 320,
+    "issue": "Prior Authorization Pending",
+    "status": "Submitted",
+    "priority": "High",
+    "riskScore": 88,
+    "adjudicationStatus": "Pending Review",
+    "eraReconciliationStatus": "Payment Pending",
+    "aiRecommendation": "Waiting for payer authorization response.",
+    "relatedClaims": ["CLM-1031"],
+    "detectedIssues": [
+      "Authorization delay risk",
+      "Potential SLA breach",
+      "Payer response pending"
+    ],
+    "investigationSummary": "AI detected elevated authorization turnaround risk based on payer response timelines and historical adjudication patterns.",
+    "suggestedActions": [
+      "Monitor authorization response",
+      "Notify operations analyst",
+      "Escalate if SLA threshold exceeded"
+    ]
+  },
+
+  {
+    "claimId": "CLM-1005",
+    "patient": "Lisa Brown",
+    "pharmacy": "Safeway Pharmacy",
+    "drug": "Mounjaro",
+    "claimAmount": 980,
+    "approvedAmount": 650,
+    "issue": "Coverage Limitation",
+    "status": "Escalated",
+    "priority": "High",
+    "riskScore": 65,
+    "adjudicationStatus": "Partially Approved",
+    "eraReconciliationStatus": "Variance Detected",
+    "aiRecommendation": "Coverage restriction detected. Recommend escalation to claims specialist.",
+    "relatedClaims": ["CLM-1040", "CLM-1044"],
+    "detectedIssues": [
+      "Coverage limitation detected",
+      "Partial reimbursement variance",
+      "Out-of-formulary exception"
+    ],
+    "investigationSummary": "AI identified coverage restrictions and reimbursement inconsistencies requiring specialist intervention.",
+    "suggestedActions": [
+      "Escalate to claims specialist",
+      "Review formulary coverage rules",
+      "Initiate payer outreach"
+    ]
+  },
+
+  {
+    "claimId": "CLM-1006",
+    "patient": "James Carter",
+    "pharmacy": "Kaiser Pharmacy",
+    "drug": "Trulicity",
+    "claimAmount": 720,
+    "approvedAmount": 720,
+    "issue": "Clean Claim",
+    "status": "Completed",
+    "priority": "Low",
+    "riskScore": 18,
+    "adjudicationStatus": "Approved",
+    "eraReconciliationStatus": "Matched",
+    "aiRecommendation": "No discrepancies detected.",
+    "relatedClaims": [],
+    "detectedIssues": [
+      "No reconciliation discrepancies identified"
+    ],
+    "investigationSummary": "AI review completed successfully with no operational or reimbursement anomalies detected.",
+    "suggestedActions": [
+      "Archive claim",
+      "Close reconciliation workflow"
+    ]
+  },
+
+  {
+    "claimId": "CLM-1007",
+    "patient": "Sophia Martinez",
+    "pharmacy": "Walgreens",
+    "drug": "Xarelto",
+    "claimAmount": 410,
+    "approvedAmount": 275,
+    "issue": "Underpayment Detected",
+    "status": "Under Review",
+    "priority": "Medium",
+    "riskScore": 74,
+    "adjudicationStatus": "Partially Approved",
+    "eraReconciliationStatus": "Variance Detected",
+    "aiRecommendation": "Validate payer reimbursement adjustments.",
+    "relatedClaims": ["CLM-1060"],
+    "detectedIssues": [
+      "Underpayment variance detected",
+      "Payer adjustment inconsistency",
+      "Reimbursement below expected threshold"
+    ],
+    "investigationSummary": "AI detected abnormal reimbursement reductions inconsistent with expected adjudication patterns.",
+    "suggestedActions": [
+      "Review reimbursement calculations",
+      "Validate payer adjustment codes",
+      "Escalate to payment review"
+    ]
+  },
+
+  {
+    "claimId": "CLM-1008",
+    "patient": "Robert Taylor",
+    "pharmacy": "CVS Pharmacy",
+    "drug": "Enbrel",
+    "claimAmount": 3100,
+    "approvedAmount": 0,
+    "issue": "Rejected Claim",
+    "status": "Escalated",
+    "priority": "High",
+    "riskScore": 95,
+    "adjudicationStatus": "Rejected",
+    "eraReconciliationStatus": "Payment Pending",
+    "aiRecommendation": "Claim rejected due to missing payer authorization.",
+    "relatedClaims": ["CLM-1075"],
+    "detectedIssues": [
+      "Missing prior authorization",
+      "Claim rejection detected",
+      "High-value reimbursement risk"
+    ],
+    "investigationSummary": "AI flagged this claim as a high-risk reimbursement denial requiring urgent operational review.",
+    "suggestedActions": [
+      "Request prior authorization",
+      "Escalate to payer operations",
+      "Notify claims supervisor"
+    ]
+  },
+
+  {
+    "claimId": "CLM-1009",
+    "patient": "Olivia Anderson",
+    "pharmacy": "Rite Aid",
+    "drug": "Farxiga",
+    "claimAmount": 630,
+    "approvedAmount": 630,
+    "issue": "Duplicate ERA Response",
+    "status": "Discrepancy Detected",
+    "priority": "Medium",
+    "riskScore": 58,
+    "adjudicationStatus": "Approved",
+    "eraReconciliationStatus": "Partial Match",
+    "aiRecommendation": "Potential duplicate ERA transaction detected.",
+    "relatedClaims": ["CLM-1081"],
+    "detectedIssues": [
+      "Duplicate ERA response detected",
+      "Payment reconciliation overlap",
+      "Potential duplicate remittance advice"
+    ],
+    "investigationSummary": "AI identified duplicate remittance patterns within the ERA reconciliation workflow.",
+    "suggestedActions": [
+      "Validate ERA transactions",
+      "Review remittance sequencing",
+      "Reconcile duplicate responses"
+    ]
+  },
+
+  {
+    "claimId": "CLM-1010",
+    "patient": "Daniel Harris",
+    "pharmacy": "Safeway Pharmacy",
+    "drug": "Skyrizi",
+    "claimAmount": 1850,
+    "approvedAmount": 1500,
+    "issue": "Partial Reimbursement",
+    "status": "Under Review",
+    "priority": "High",
+    "riskScore": 82,
+    "adjudicationStatus": "Partially Approved",
+    "eraReconciliationStatus": "Variance Detected",
+    "aiRecommendation": "Investigate reimbursement reduction and payer adjustment codes.",
+    "relatedClaims": ["CLM-1001"],
+    "detectedIssues": [
+      "Partial reimbursement variance",
+      "Payer adjustment discrepancy",
+      "High-cost medication reimbursement reduction"
+    ],
+    "investigationSummary": "AI detected reimbursement inconsistencies exceeding operational variance thresholds.",
+    "suggestedActions": [
+      "Review payer adjustment logic",
+      "Escalate reimbursement variance",
+      "Validate adjudication workflow"
+    ]
+  }
+]
+
