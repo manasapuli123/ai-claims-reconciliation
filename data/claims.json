@@ -96,7 +96,7 @@
     "riskScore": 88,
     "adjudicationStatus": "Pending Review",
     "eraReconciliationStatus": "Payment Pending",
-    "aiRecommendation": "Waiting for payer authorization response.",
+    "aiRecommendation": "Waiting for prior authorization response.",
     "relatedClaims": ["CLM-1031"],
     "detectedIssues": [
       "Authorization delay risk",
@@ -205,7 +205,7 @@
     "riskScore": 95,
     "adjudicationStatus": "Rejected",
     "eraReconciliationStatus": "Payment Pending",
-    "aiRecommendation": "Claim rejected due to missing payer authorization.",
+    "aiRecommendation": "Claim rejected due to missing prior authorization.",
     "relatedClaims": ["CLM-1075"],
     "detectedIssues": [
       "Missing prior authorization",
