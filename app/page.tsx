@@ -210,7 +210,7 @@ export default function Home() {
                   <th className="p-3">Pharmacy</th>
                   <th className="p-3">Drug</th>
                   <th className="p-3">Issue</th>
-                  <th className="p-3">Status</th>
+                  <th className="p-3">Reconciliation Status</th>
                   <th className="p-3">Priority</th>
                   <th className="p-3"> Variance % </th>
 
