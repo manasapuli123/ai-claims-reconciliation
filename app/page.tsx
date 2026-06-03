@@ -297,7 +297,7 @@ export default function Home() {
 
             </table>
 
-          </div>git 
+          </div>
 
 
         </div>
