@@ -41,13 +41,13 @@ export default function Home() {
     <main className="min-h-screen bg-[#f6f8fb] flex">
 
     {/* Sidebar Toggle Button */}
-    <button onClick={() => setSidebarOpen(!sidebarOpen)} className={`fixed top-6 z-50 bg-white border border-gray-200 shadow-sm rounded-r-md px-1.5 py-2 transition-all duration-300 hover:bg-gray-100 ${ sidebarOpen ? "left-80" : "left-0" }`} > 
+    <button onClick={() => setSidebarOpen(!sidebarOpen)} className={`fixed top-6 z-50 bg-white border border-gray-200 shadow-sm rounded-r-md px-1.5 py-2 transition-all duration-300 hover:bg-gray-100 ${ sidebarOpen ? "left-64" : "left-0" }`} > 
     <span className="text-xs text-gray-600 font-medium"> {sidebarOpen ? "◀" : "▶"} 
     </span> 
     </button>
 
     {/* Sidebar */}
-    <div className={`fixed top-0 left-0 h-full w-80 bg-white border-r shadow-sm p-6 z-40 transform transition-transform duration-300 ${ sidebarOpen ? "translate-x-0" : "-translate-x-full" }`} >  
+    <div className={`fixed top-0 left-0 h-full w-64 bg-white border-r shadow-sm p-6 z-40 transform transition-transform duration-300 ${ sidebarOpen ? "translate-x-0" : "-translate-x-full" }`} >  
     <h2 className="text-3xl font-bold mb-6">
     ClaimsAI
     </h2>
