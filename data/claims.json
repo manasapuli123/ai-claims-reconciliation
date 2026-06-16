@@ -4,6 +4,7 @@
     "patient": "Sarah Johnson",
     "pharmacy": "Walgreens",
     "drug": "Ozempic",
+    "insuranceProvider": "UHG",
     "claimAmount": 1200,
     "approvedAmount": 950,
     "issue": "Payment Mismatch",
@@ -26,12 +27,12 @@
       "Request additional documentation"
     ]
   },
-
   {
     "claimId": "CLM-1002",
     "patient": "Michael Lee",
     "pharmacy": "CVS Pharmacy",
     "drug": "Humira",
+    "insuranceProvider": "Aetna",
     "claimAmount": 2400,
     "approvedAmount": 2400,
     "issue": "Duplicate Claim",
@@ -54,12 +55,12 @@
       "Confirm duplicate status"
     ]
   },
-
   {
     "claimId": "CLM-1003",
     "patient": "Emily Davis",
     "pharmacy": "Rite Aid",
     "drug": "Jardiance",
+    "insuranceProvider": "Blue Cross",
     "claimAmount": 560,
     "approvedAmount": 0,
     "issue": "Missing Pharmacy ID",
@@ -82,12 +83,12 @@
       "Reprocess payer validation"
     ]
   },
-
   {
     "claimId": "CLM-1004",
     "patient": "David Wilson",
     "pharmacy": "Costco Pharmacy",
     "drug": "Eliquis",
+    "insuranceProvider": "Cigna",
     "claimAmount": 320,
     "approvedAmount": 320,
     "issue": "Prior Authorization Pending",
@@ -110,12 +111,12 @@
       "Escalate if SLA threshold exceeded"
     ]
   },
-
   {
     "claimId": "CLM-1005",
     "patient": "Lisa Brown",
     "pharmacy": "Safeway Pharmacy",
     "drug": "Mounjaro",
+    "insuranceProvider": "UHG",
     "claimAmount": 980,
     "approvedAmount": 650,
     "issue": "Coverage Limitation",
@@ -138,12 +139,12 @@
       "Initiate payer outreach"
     ]
   },
-
   {
     "claimId": "CLM-1006",
     "patient": "James Carter",
     "pharmacy": "Kaiser Pharmacy",
     "drug": "Trulicity",
+    "insuranceProvider": "Aetna",
     "claimAmount": 720,
     "approvedAmount": 720,
     "issue": "Clean Claim",
@@ -163,12 +164,12 @@
       "Close reconciliation workflow"
     ]
   },
-
   {
     "claimId": "CLM-1007",
     "patient": "Sophia Martinez",
     "pharmacy": "Walgreens",
     "drug": "Xarelto",
+    "insuranceProvider": "Blue Cross",
     "claimAmount": 410,
     "approvedAmount": 275,
     "issue": "Underpayment Detected",
@@ -191,12 +192,12 @@
       "Escalate to payment review"
     ]
   },
-
   {
     "claimId": "CLM-1008",
     "patient": "Robert Taylor",
     "pharmacy": "CVS Pharmacy",
     "drug": "Enbrel",
+    "insuranceProvider": "Cigna",
     "claimAmount": 3100,
     "approvedAmount": 0,
     "issue": "Rejected Claim",
@@ -219,12 +220,12 @@
       "Notify claims supervisor"
     ]
   },
-
   {
     "claimId": "CLM-1009",
     "patient": "Olivia Anderson",
     "pharmacy": "Rite Aid",
     "drug": "Farxiga",
+    "insuranceProvider": "UHG",
     "claimAmount": 630,
     "approvedAmount": 630,
     "issue": "Duplicate ERA Response",
@@ -247,12 +248,12 @@
       "Reconcile duplicate responses"
     ]
   },
-
   {
     "claimId": "CLM-1010",
     "patient": "Daniel Harris",
     "pharmacy": "Safeway Pharmacy",
     "drug": "Skyrizi",
+    "insuranceProvider": "Blue Cross",
     "claimAmount": 1850,
     "approvedAmount": 1500,
     "issue": "Partial Reimbursement",
@@ -276,4 +277,3 @@
     ]
   }
 ]
-
