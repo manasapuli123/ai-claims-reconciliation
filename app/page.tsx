@@ -13,11 +13,6 @@ import {
   PieChart,
   Pie,
   Cell,
-  RadarChart,
-  Radar,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
 } from "recharts";
 import claims from "@/data/claims.json";
 
@@ -218,49 +213,6 @@ export default function Home() {
                   {claims.filter((c) => c.status === "Pending Validation").length}
                 </h2>
               </div>
-            </div>
-
-            {/* Payment Analytics Summary */}
-            <div className="bg-white rounded-xl shadow p-6 mb-6">
-              <div className="mb-5">
-                <h2 className="text-lg font-semibold text-gray-900">
-                  Payment Analytics by Insurance Provider
-                </h2>
-                <p className="text-sm text-gray-500 mt-1">
-                  Claimed vs. approved amounts across UnitedHealth Group, Aetna, BCBS, and Cigna
-                </p>
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-                {providerAnalytics.map((p) => (
-                  <div key={p.provider} className="bg-gray-50 border border-gray-100 rounded-lg p-4">
-                    <p className="text-xs font-medium text-gray-500 mb-1" title={p.provider}>
-                      {p.shortProvider}
-                    </p>
-                    <p className="text-lg font-bold text-gray-900">{formatK(p.totalApproved)}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">of {formatK(p.totalClaimed)} claimed</p>
-                    <p className={`text-xs font-semibold mt-1 ${p.variance < -15 ? "text-red-600" : p.variance < 0 ? "text-amber-600" : "text-green-600"}`}>
-                      {p.variance > 0 ? "+" : ""}{p.variance}% variance
-                    </p>
-                  </div>
-                ))}
-              </div>
-              <ResponsiveContainer width="100%" height={280}>
-                <BarChart data={overallData} margin={{ top: 4, right: 16, left: 8, bottom: 4 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                  <XAxis dataKey="shortProvider" tick={{ fontSize: 13, fill: "#6b7280" }} />
-                  <YAxis tickFormatter={formatK} tick={{ fontSize: 12, fill: "#6b7280" }} />
-                  <Tooltip
-                    formatter={(v: number, name: string) => [formatK(v), name === "claimed" ? "Claimed" : "Approved"]}
-                    contentStyle={{ borderRadius: "8px", border: "1px solid #e5e7eb", fontSize: "13px" }}
-                  />
-                  <Legend
-                    formatter={(v) => (v === "claimed" ? "Claimed amount" : "Approved amount")}
-                    wrapperStyle={{ fontSize: "13px", paddingTop: "12px" }}
-                  />
-                  <Bar dataKey="claimed" fill="#93c5fd" radius={[4, 4, 0, 0]} maxBarSize={48} />
-                  <Bar dataKey="approved" fill="#2563eb" radius={[4, 4, 0, 0]} maxBarSize={48} />
-                </BarChart>
-              </ResponsiveContainer>
             </div>
 
             {/* Search + Filters */}
@@ -492,27 +444,48 @@ export default function Home() {
               })}
             </div>
 
-            {/* Risk Radar */}
+            {/* Risk Ranking */}
             <div className="bg-white rounded-xl shadow p-6 mb-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-1">Risk Profile by Provider</h2>
-              <p className="text-sm text-gray-500 mb-5">Average risk score, high-priority claims, and variance exposure</p>
-              <ResponsiveContainer width="100%" height={300}>
-                <RadarChart
-                  data={providerAnalytics.map((p) => ({
-                    provider: p.shortProvider,
-                    "Avg Risk Score": p.avgRisk,
-                    "High Priority": p.highPriority * 25,
-                    "Variance Exposure": Math.abs(p.variance),
-                    "Claim Volume": p.claimCount * 20,
-                  }))}
+              <h2 className="text-lg font-semibold text-gray-900 mb-1">Risk Score by Provider</h2>
+              <p className="text-sm text-gray-500 mb-5">Average claim risk score, ranked highest to lowest</p>
+              <ResponsiveContainer
+                width="100%"
+                height={Math.max(180, providerAnalytics.length * 50 + 40)}
+              >
+                <BarChart
+                  layout="vertical"
+                  data={[...providerAnalytics].sort((a, b) => b.avgRisk - a.avgRisk)}
+                  margin={{ top: 4, right: 24, left: 8, bottom: 4 }}
                 >
-                  <PolarGrid />
-                  <PolarAngleAxis dataKey="provider" tick={{ fontSize: 13 }} />
-                  <PolarRadiusAxis tick={{ fontSize: 11, fill: "#9ca3af" }} />
-                  <Radar name="Risk Profile" dataKey="Avg Risk Score" stroke="#2563eb" fill="#2563eb" fillOpacity={0.15} />
-                  <Radar name="Variance Exposure" dataKey="Variance Exposure" stroke="#ef4444" fill="#ef4444" fillOpacity={0.1} />
-                  <Legend wrapperStyle={{ fontSize: "13px", paddingTop: "12px" }} />
-                </RadarChart>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                  <XAxis type="number" domain={[0, 100]} tick={{ fontSize: 12, fill: "#6b7280" }} />
+                  <YAxis
+                    type="category"
+                    dataKey="shortProvider"
+                    width={80}
+                    tick={{ fontSize: 13, fill: "#6b7280" }}
+                  />
+                  <Tooltip
+                    formatter={(v: number) => [v, "Avg risk score"]}
+                    contentStyle={{ borderRadius: "8px", border: "1px solid #e5e7eb", fontSize: "13px" }}
+                  />
+                  <Bar dataKey="avgRisk" radius={[0, 4, 4, 0]} maxBarSize={28}>
+                    {[...providerAnalytics]
+                      .sort((a, b) => b.avgRisk - a.avgRisk)
+                      .map((entry) => (
+                        <Cell
+                          key={entry.provider}
+                          fill={
+                            entry.avgRisk >= 80
+                              ? "#ef4444"
+                              : entry.avgRisk >= 50
+                              ? "#f59e0b"
+                              : "#22c55e"
+                          }
+                        />
+                      ))}
+                  </Bar>
+                </BarChart>
               </ResponsiveContainer>
             </div>
           </>
